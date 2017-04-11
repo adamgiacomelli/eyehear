@@ -1,0 +1,9 @@
+.title {
+    text-align: center;
+}
+
+#oscilloscope {
+  display: block;
+  margin: auto;
+  width: 500px;
+}
