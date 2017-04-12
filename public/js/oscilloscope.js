@@ -28,6 +28,8 @@ analyser.fftSize = 1024;
 var bufferLength = analyser.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 
+var hzMultiplier = audioCtx.sampleRate/analyser.fftSize;
+
 analyser.getByteTimeDomainData(dataArray);
 
 // Get a canvas defined with ID "oscilloscope"
@@ -78,6 +80,7 @@ function draw() {
         canvasCtx.fillStyle = '#FFFFFF';
         canvasCtx.font = "13px Courier New";
         canvasCtx.fillText(barHeight.toFixed(1),x,HEIGHT);
+        canvasCtx.fillText((i*hzMultiplier).toFixed(1),x,HEIGHT-20);
       }
 
       x += barWidth + 1;
