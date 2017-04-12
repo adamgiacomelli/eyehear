@@ -24,7 +24,7 @@
 var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 var analyser = audioCtx.createAnalyser();
 
-analyser.fftSize = 512;
+analyser.fftSize = 1024;
 var bufferLength = analyser.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 
@@ -64,7 +64,7 @@ function draw() {
   canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
 
-  var barWidth = (WIDTH / bufferLength)*8;
+  var barWidth = (WIDTH / bufferLength)*2;
   var barHeight;
   var x = 0;
 
@@ -72,11 +72,13 @@ function draw() {
       barHeight = dataArray[i];
 
       canvasCtx.fillStyle = '#FFFFA0';
-      canvasCtx.fillRect(x,HEIGHT-barHeight,barWidth,barHeight);
+      canvasCtx.fillRect(x,HEIGHT-barHeight-40,barWidth,barHeight-40);
 
-      canvasCtx.fillStyle = '#000000';
-      canvasCtx.font = "7px Arial";
-      canvasCtx.fillText(barHeight.toFixed(1),x,HEIGHT);
+      if(i%10 == 0) {
+        canvasCtx.fillStyle = '#FFFFFF';
+        canvasCtx.font = "13px Courier New";
+        canvasCtx.fillText(barHeight.toFixed(1),x,HEIGHT);
+      }
 
       x += barWidth + 1;
     }
