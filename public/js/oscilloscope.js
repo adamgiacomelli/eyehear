@@ -80,7 +80,7 @@ function draw() {
         canvasCtx.fillStyle = '#FFFFFF';
         canvasCtx.font = "13px Courier New";
         canvasCtx.fillText(barHeight.toFixed(1),x,HEIGHT);
-        canvasCtx.fillText((i*hzMultiplier).toFixed(1),x,HEIGHT-20);
+        canvasCtx.fillText((i*hzMultiplier).toFixed(1) + "Hz",x,HEIGHT-20);
       }
 
       x += barWidth + 1;
