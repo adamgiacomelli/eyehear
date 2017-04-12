@@ -71,7 +71,7 @@ function draw() {
   for(var i = 0; i < bufferLength; i++) {
       barHeight = dataArray[i];
 
-      canvasCtx.fillStyle = '#AAE000';
+      canvasCtx.fillStyle = '#3345A0';
       canvasCtx.fillRect(x,HEIGHT-barHeight/2,barWidth,barHeight);
 
       canvasCtx.fillStyle = '#000000';
