@@ -58,7 +58,7 @@ function updateVideoId() {
 function draw() {
   drawVisual = requestAnimationFrame(draw);
 
-  analyser.getByteTimeDomainData(dataArray);
+  analyser.getByteFrequencyData(dataArray);
 
   canvasCtx.fillStyle = 'rgb(100, 100, 100)';
   canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
