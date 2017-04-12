@@ -8,9 +8,14 @@
   <div class="title">
     <h1>EyeHear Alpha</h1>
   </div>
-<canvas id="oscilloscope">
-
-</canvas>
+  <div class="main">
+    <canvas id="oscilloscope"></canvas>
+    <div class="audio">
+      <audio id="player" src="audio/?videoId=sTJ1XwGDcA4" controls></audio>
+    </div>
+    VideoId: <input id="videoIdInput" type="text" name="videoIdInput" value="sTJ1XwGDcA4">
+    <button type="button" name="button" onclick="updateVideoId()">Update</button>
+  </div>
 
 <script type="text/javascript" src="js/oscilloscope.js"></script>
 </body>

@@ -2,8 +2,17 @@
     text-align: center;
 }
 
-#oscilloscope {
+.audio {
+  display: block;
+  margin: auto;
+}
+
+.main {
   display: block;
   margin: auto;
   width: 500px;
+}
+
+#oscilloscope {
+  width: 100%;
 }

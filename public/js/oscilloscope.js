@@ -1,25 +1,25 @@
-if (navigator.getUserMedia) {
-   console.log('getUserMedia supported.');
-   navigator.getUserMedia (
-      // constraints - only audio needed for this app
-      {
-         audio: true
-      },
-
-      // Success callback
-      function(stream) {
-         source = audioCtx.createMediaStreamSource(stream);
-         source.connect(analyser);
-      },
-
-      // Error callback
-      function(err) {
-         console.log('The following gUM error occured: ' + err);
-      }
-   );
-} else {
-   console.log('getUserMedia not supported on your browser!');
-}
+// if (navigator.getUserMedia) {
+//    console.log('getUserMedia supported.');
+//    navigator.getUserMedia (
+//       // constraints - only audio needed for this app
+//       {
+//          audio: true
+//       },
+//
+//       // Success callback
+//       function(stream) {
+//          source = audioCtx.createMediaStreamSource(stream);
+//          source.connect(analyser);
+//       },
+//
+//       // Error callback
+//       function(err) {
+//          console.log('The following gUM error occured: ' + err);
+//       }
+//    );
+// } else {
+//    console.log('getUserMedia not supported on your browser!');
+// }
 
 var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 var analyser = audioCtx.createAnalyser();
@@ -38,8 +38,24 @@ var canvasCtx = canvas.getContext("2d");
 var WIDTH = canvas.width;
 var HEIGHT = canvas.height;
 
-function draw() {
 
+var audioElement = document.getElementById("player");
+var source = audioCtx.createMediaElementSource(audioElement);
+
+audioElement.addEventListener("canplay", function() {
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+  draw();
+});
+
+function updateVideoId() {
+  audioElement.pause();
+  var input = document.getElementById("videoIdInput").value;
+  audioElement.src = "audio/?videoId=" + input;
+  audioElement.play();
+}
+
+function draw() {
   drawVisual = requestAnimationFrame(draw);
 
   analyser.getByteTimeDomainData(dataArray);
@@ -90,5 +106,3 @@ function draw() {
   // canvasCtx.lineTo(canvas.width, canvas.height / 2);
   // canvasCtx.stroke();
 };
-
-draw();
