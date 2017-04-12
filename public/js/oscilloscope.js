@@ -24,7 +24,7 @@
 var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 var analyser = audioCtx.createAnalyser();
 
-analyser.fftSize = 256;
+analyser.fftSize = 512;
 var bufferLength = analyser.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 
@@ -71,8 +71,8 @@ function draw() {
   for(var i = 0; i < bufferLength; i++) {
       barHeight = dataArray[i];
 
-      canvasCtx.fillStyle = '#3345A0';
-      canvasCtx.fillRect(x,HEIGHT-barHeight/2,barWidth,barHeight);
+      canvasCtx.fillStyle = '#FFFFA0';
+      canvasCtx.fillRect(x,HEIGHT-barHeight,barWidth,barHeight);
 
       canvasCtx.fillStyle = '#000000';
       canvasCtx.font = "7px Arial";
