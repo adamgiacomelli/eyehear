@@ -8,18 +8,20 @@
 </head>
 
 <body>
-  <div class="title">
-    <h1>EyeHear Alpha</h1>
-  </div>
-  <div class="main">
-    <canvas width="1500px" height="400px" id="oscilloscope"></canvas>
-    <div class="audio">
-      <audio id="player" src="audio/?videoId=sTJ1XwGDcA4" controls></audio>
+  <div id="centerContainer">
+    <div class="title">
+      <h1>EyeHear Alpha</h1>
     </div>
-    VideoId: <input id="videoIdInput" type="text" name="videoIdInput" value="sTJ1XwGDcA4">
-    <button type="button" name="button" onclick="updateVideoId()">Update</button>
+    <div class="main">
+      <canvas width="1500px" height="400px" id="oscilloscope"></canvas>
+      <canvas width="1500px" height="400px" id="spectrogram"></canvas>
+      <div class="audio">
+        <audio id="player" src="audio/?videoId=AmtxmFYbUeg" controls></audio>
+      </div>
+      VideoId: <input id="videoIdInput" type="text" name="videoIdInput" value="AmtxmFYbUeg">
+      <button type="button" name="button" onclick="updateVideoId()">Update</button>
+    </div>
   </div>
-
   <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

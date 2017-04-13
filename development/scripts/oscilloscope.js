@@ -21,10 +21,18 @@
 //    console.log('getUserMedia not supported on your browser!');
 // }
 
+var spectro = Spectrogram(document.getElementById('spectrogram'), {
+  audio: {
+    enable: true
+  }
+});
+
+console.log(spectro);
+
 var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
 var analyser = audioCtx.createAnalyser();
 
-analyser.fftSize = 1024;
+analyser.fftSize = 2048;
 var bufferLength = analyser.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 
@@ -48,6 +56,9 @@ audioElement.addEventListener("canplay", function() {
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
   draw();
+
+  spectro.connectSource(analyser, audioCtx);
+  spectro.start();
 });
 
 function updateVideoId() {
@@ -76,7 +87,7 @@ function draw() {
       canvasCtx.fillStyle = '#FFFFA0';
       canvasCtx.fillRect(x,HEIGHT-barHeight-40,barWidth,barHeight-40);
 
-      if(i%10 == 0) {
+      if(i%16 == 0) {
         canvasCtx.fillStyle = '#FFFFFF';
         canvasCtx.font = "13px Courier New";
         canvasCtx.fillText(barHeight.toFixed(1),x,HEIGHT);

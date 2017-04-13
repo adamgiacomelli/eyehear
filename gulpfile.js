@@ -69,8 +69,8 @@ gulp.task('vendor', function() {
 /* Watch Files For Changes */
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch('development/scss/*.scss', ['sass']);
-  gulp.watch('development/js/*.js', ['js']);
+  gulp.watch('development/style/scss/*.scss', ['sass']);
+  gulp.watch('development/scripts/*.js', ['js']);
 });
 
 gulp.task('default', ['sass', 'js', 'vendor', 'watch']);
