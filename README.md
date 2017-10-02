@@ -1,39 +1,13 @@
-# node-js-getting-started
+# Eyehear
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+Streams youtube to client where FFT & Spectrogram is executed on the stream
+Note: the code is a proof of concept, don't expect to find beautiful code here :)
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+### About
+I'm making use of [https://github.com/JamesKyburz/youtube-audio-stream](https://github.com/JamesKyburz/youtube-audio-stream) to stream youtube to the browser.
 
-## Running Locally
+### Interesting stuff
+- See development/scripts for the interesting FFT & spectro stuff,
+- views/ has the html & built js
+- index.js has the serverside
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
-
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
